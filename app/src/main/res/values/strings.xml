@@ -4,4 +4,5 @@
     <string name="dogs_textview">Do you like dogs?</string>
     <string name="yes_button">Yes</string>
     <string name="no_button">No</string>
+    <string name="results_button">Show Results</string>
 </resources>

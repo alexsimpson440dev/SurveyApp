@@ -21,22 +21,29 @@ public class SurveyApp extends AppCompatActivity {
         //button variable that read from xml file to access the button clicks
         Button mYesButton = (Button) findViewById(R.id.yes_button);
         Button mNoButton = (Button) findViewById(R.id.no_button);
+        Button mResultsButton = (Button) findViewById(R.id.results_button);
 
-        //button click method that adds one to the yes counter then displays a toast
+        //button click method that adds one to the yes counter
         mYesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 yesButtonCounter = (yesButtonCounter + 1);
-                Toast.makeText(SurveyApp.this, "Total Yes count is " + yesButtonCounter, Toast.LENGTH_SHORT).show();
             }
         });
 
-        //button click method that adds one to the no counter then displays a toast
+        //button click method that adds one to the no counter
         mNoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 noButtonCounter = (noButtonCounter + 1);
-                Toast.makeText(SurveyApp.this, "Total No count is " + noButtonCounter, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //button click method that shows a toast of the yes and no results
+        mResultsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(SurveyApp.this, "Yes Total: " + yesButtonCounter + ", No Total: " + noButtonCounter, Toast.LENGTH_LONG).show();
             }
         });
     }
