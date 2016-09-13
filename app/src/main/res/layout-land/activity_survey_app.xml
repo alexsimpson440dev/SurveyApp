@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dogs_textview"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="50dp"/>
+
+    <Button
+        android:id="@+id/results_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/results_button"
+        android:layout_below="@+id/yes_button"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:text="@string/yes_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/yes_button"
+        android:layout_alignTop="@+id/no_button"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_marginRight="70dp"
+        android:layout_marginEnd="70dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="70dp"/>
+
+    <Button
+        android:text="@string/no_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/no_button"
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_marginLeft="71dp"
+        android:layout_marginStart="71dp"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="70dp"/>
+
+</FrameLayout>

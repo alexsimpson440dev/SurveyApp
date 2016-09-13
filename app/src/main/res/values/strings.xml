@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Survey App</string>
 
-    //strings for the buttons and a text view
     <string name="dogs_textview">Do you like dogs?</string>
     <string name="yes_button">Yes</string>
     <string name="no_button">No</string>
