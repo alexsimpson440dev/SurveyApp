@@ -5,4 +5,5 @@
     <string name="yes_button">Yes</string>
     <string name="no_button">No</string>
     <string name="results_button">Show Results</string>
+    <string name="reset_button">Reset Results</string>
 </resources>

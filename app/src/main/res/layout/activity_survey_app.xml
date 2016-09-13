@@ -46,4 +46,13 @@
         android:text="@string/results_button"
         android:layout_below="@+id/yes_button"
         android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reset_button"
+        android:layout_below="@+id/results_button"
+        android:layout_alignLeft="@+id/results_button"
+        android:layout_alignStart="@+id/results_button"/>
 </RelativeLayout>
