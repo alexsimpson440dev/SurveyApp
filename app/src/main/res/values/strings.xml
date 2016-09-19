@@ -6,4 +6,8 @@
     <string name="no_button">No</string>
     <string name="results_button">Show Results</string>
     <string name="reset_button">Reset Results</string>
+
+    <string name="results_textview">Results</string>
+    <string name="yes_results">Yes: </string>
+    <string name="no_results">No: </string>
 </resources>
