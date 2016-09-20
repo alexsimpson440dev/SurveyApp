@@ -55,4 +55,14 @@
         android:layout_below="@+id/results_button"
         android:layout_alignLeft="@+id/results_button"
         android:layout_alignStart="@+id/results_button"/>
+
+    <Button
+        android:id="@+id/configure_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/configure_button"
+        android:layout_below="@+id/reset_button"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>
+
+

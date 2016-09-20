@@ -1,5 +1,6 @@
 package com.example.me5013zu.surveyapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +9,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class SurveyApp extends AppCompatActivity {
+
+    public static final String EXTRA_SHOW_RESULTS_YES = "com.example.me5013zu.surveyapp.showResultsYes";
+    public static final String EXTRA_SHOW_RESULTS_NO = "com.example.me5013zu.surveyapp.showResultsNo";
 
     //tags for logging
     private static String TAG = "SurveyApp";
@@ -29,7 +33,8 @@ public class SurveyApp extends AppCompatActivity {
         Button mYesButton = (Button) findViewById(R.id.yes_button);
         Button mNoButton = (Button) findViewById(R.id.no_button);
         Button mResultsButton = (Button) findViewById(R.id.results_button);
-        Button mResetbutton = (Button) findViewById(R.id.reset_button);
+        Button mResetButton = (Button) findViewById(R.id.reset_button);
+        Button mConfigureButton = (Button) findViewById(R.id.configure_button);
 
         //button click method that adds one to the yes counter
         mYesButton.setOnClickListener(new View.OnClickListener() {
@@ -47,20 +52,32 @@ public class SurveyApp extends AppCompatActivity {
             }
         });
 
-        //button click method that shows a toast of the yes and no results
+        //button click method that opens the result activity
         mResultsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(SurveyApp.this, "Yes Total: " + yesButtonCounter + ", No Total: " + noButtonCounter, Toast.LENGTH_LONG).show();
+                Intent launchResultsActivity = new Intent(SurveyApp.this, ResultsActivity.class);
+                launchResultsActivity.putExtra(EXTRA_SHOW_RESULTS_YES, yesButtonCounter);
+                launchResultsActivity.putExtra(EXTRA_SHOW_RESULTS_NO, noButtonCounter);
+                startActivity(launchResultsActivity);
             }
         });
 
         //button click method that resets the counters
-        mResetbutton.setOnClickListener(new View.OnClickListener() {
+        mResetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 yesButtonCounter = 0;
                 noButtonCounter = 0;
+            }
+        });
+
+        //button click method that opens the configure activity
+        mConfigureButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent launchConfigureActivity = new Intent(SurveyApp.this, ConfigurationActivity.class);
+                startActivity(launchConfigureActivity);
             }
         });
 

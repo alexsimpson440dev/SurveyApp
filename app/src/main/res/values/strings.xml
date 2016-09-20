@@ -6,8 +6,14 @@
     <string name="no_button">No</string>
     <string name="results_button">Show Results</string>
     <string name="reset_button">Reset Results</string>
+    <string name="configure_button">Configure Question</string>
 
     <string name="results_textview">Results</string>
     <string name="yes_results">Yes: </string>
     <string name="no_results">No: </string>
+
+    <string name="edit_question">Edit Question</string>
+    <string name="edit_response1">Edit Response 1</string>
+    <string name="edit_response2">Edit Response 2</string>
+    <string name="save_changes_button">Save Changes</string>
 </resources>

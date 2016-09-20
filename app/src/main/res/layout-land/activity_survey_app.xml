@@ -13,15 +13,6 @@
         android:paddingTop="50dp"/>
 
     <Button
-        android:id="@+id/results_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/results_button"
-        android:layout_below="@+id/yes_button"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"/>
-
-    <Button
         android:text="@string/yes_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,5 +48,21 @@
         android:layout_alignStart="@+id/results_button"
         android:layout_gravity="center_horizontal|center"
         android:layout_marginTop="50dp"/>
+
+    <Button
+        android:id="@+id/configure_button"
+        android:layout_width="206dp"
+        android:layout_height="wrap_content"
+        android:text="@string/configure_button"
+        android:layout_below="@id/reset_button"/>
+
+    <Button
+        android:id="@+id/results_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/results_button"
+        android:layout_below="@+id/yes_button"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"/>
 
 </FrameLayout>
