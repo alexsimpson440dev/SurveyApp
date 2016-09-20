@@ -6,12 +6,21 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SurveyApp extends AppCompatActivity {
 
+    //extras to carry data to other activities
+    //used for the results activity
     public static final String EXTRA_SHOW_RESULTS_YES = "com.example.me5013zu.surveyapp.showResultsYes";
     public static final String EXTRA_SHOW_RESULTS_NO = "com.example.me5013zu.surveyapp.showResultsNo";
+    //used for the configuration activity
+    public static final String EXTRA_QUESTION = "com.example.me5013zu.surveyapp.question";
+    public static final String EXTRA_RESPONSE1 = "com.example.me5013zu.surveyapp.response1";
+    public static final String EXTRA_RESPONSE2 = "com.example.me5013zu.surveyapp.response2";
+    private static final int CONFIGURATION_REQUEST_CODE = 0;
 
     //tags for logging
     private static String TAG = "SurveyApp";
@@ -22,6 +31,7 @@ public class SurveyApp extends AppCompatActivity {
     //will count the number of times the yes/no buttons were clicked
     private int yesButtonCounter = 0;
     private int noButtonCounter = 0;
+
 
 
     @Override
@@ -35,6 +45,12 @@ public class SurveyApp extends AppCompatActivity {
         Button mResultsButton = (Button) findViewById(R.id.results_button);
         Button mResetButton = (Button) findViewById(R.id.reset_button);
         Button mConfigureButton = (Button) findViewById(R.id.configure_button);
+        TextView questionText = (TextView) findViewById(R.id.textView);
+
+        //variables for the textviews and strings to edit for configuration
+        final String question = questionText.getText().toString();
+        final String response1 = mYesButton.getText().toString();
+        final String response2 = mNoButton.getText().toString();
 
         //button click method that adds one to the yes counter
         mYesButton.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +93,10 @@ public class SurveyApp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent launchConfigureActivity = new Intent(SurveyApp.this, ConfigurationActivity.class);
-                startActivity(launchConfigureActivity);
+                launchConfigureActivity.putExtra(EXTRA_QUESTION, question);
+                launchConfigureActivity.putExtra(EXTRA_RESPONSE1, response1);
+                launchConfigureActivity.putExtra(EXTRA_RESPONSE2, response2);
+                startActivityForResult(launchConfigureActivity, CONFIGURATION_REQUEST_CODE);
             }
         });
 
@@ -93,5 +112,17 @@ public class SurveyApp extends AppCompatActivity {
         Log.i(TAG, "onSaveInstanceState");
         savedInstanceState.putInt(KEY_INDEX_YES, yesButtonCounter);
         savedInstanceState.putInt(KEY_INDEX_NO, noButtonCounter);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        TextView question = (TextView) findViewById(R.id.textView);
+        Button mYesButton = (Button) findViewById(R.id.yes_button);
+        Button mNoButton = (Button) findViewById(R.id.no_button);
+
+        question.setText(data.getStringExtra(ConfigurationActivity.EXTRA_QUESTION_TEXT));
+        mYesButton.setText(data.getStringExtra(ConfigurationActivity.EXTRA_RESPONSE1_TEXT));
+        mNoButton.setText(data.getStringExtra(ConfigurationActivity.EXTRA_RESPONSE2_TEXT));
     }
 }
